@@ -32,7 +32,7 @@ Now use openbox Window Manager to improve game compatibility corectly setting fo
 KNOWN ISSUES
 ------------
 
-Steam, sometimes, may "hide" itself, mostly when something went wrong with a game or staem itself. If this happens just press ALT+TAB to get back do Steam Big Picture.
+Steam, sometimes, may "hide" itself, mostly when something went wrong with a game or steam itself. If this happens just press ALT+TAB to get back do Steam Big Picture.
 
 
 INSTALL
