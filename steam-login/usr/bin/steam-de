@@ -51,9 +51,9 @@ which nvidia-settings && nvidia-settings -l
 which gnome-settings-daemon && gnome-settings-daemon &
 
 # Disable xinput for joysticks
-if [ -x /usr/bin/xinput ]; then
-    disable_joysticks
-fi
+#if [ -x /usr/bin/xinput ]; then
+#    disable_joysticks
+#fi
 
 #Reset variables
 unset prefix
