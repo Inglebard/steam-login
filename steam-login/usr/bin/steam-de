@@ -38,8 +38,13 @@ function disable_joysticks() {
         name="`udevadm info --query=property --name=$dev | grep ID_VENDOR_ENC | cut -c15- -` `udevadm info --query=property --name=$dev | grep ID_MODEL_ENC | cut -c14- -`"
         # Escape \ sequences
         name="`echo -e "$name"`"
-        # Disable the joystick
-        xinput --list | grep "$name" | grep -Pwo "id=[0-9]*" | grep -Pwo "[0-9]*" | xargs xinput --disable
+        if grep -Fxq "$name" Exceptions_list.txt
+        then
+            # do nothing
+        else
+            # Disable the joystick
+            xinput --list | grep "$name" | grep -Pwo "id=[0-9]*" | grep -Pwo "[0-9]*" | xargs xinput --disable
+        fi
     done
 }
 
@@ -51,9 +56,9 @@ which nvidia-settings && nvidia-settings -l
 which gnome-settings-daemon && gnome-settings-daemon &
 
 # Disable xinput for joysticks
-#if [ -x /usr/bin/xinput ]; then
-#    disable_joysticks
-#fi
+if [ -x /usr/bin/xinput ]; then
+    disable_joysticks
+fi
 
 #Reset variables
 unset prefix
